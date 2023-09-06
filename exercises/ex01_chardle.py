@@ -22,23 +22,32 @@ number_of_matches: int = 0
 
 """Checking indices for matches"""
 if str(single_character) == str(five_character_word[0]):
-    print("e found at index 0")
+    print(single_character + " found at index 0")
     number_of_matches += 1
 
 if str(single_character) == str(five_character_word[1]):
-    print("e found at index 1")
+    print(single_character + " found at index 1")
     number_of_matches += 1
 
 if str(single_character) == str(five_character_word[2]):
-    print("e found at index 2")
+    print(single_character + " found at index 2")
     number_of_matches += 1
 
 if str(single_character) == str(five_character_word[3]):
-    print("e found at index 3")
+    print(single_character + " found at index 3")
     number_of_matches += 1
 
 if str(single_character) == str(five_character_word[4]):
-    print("e found at index 4")
+    print(single_character + " found at index 4")
     number_of_matches += 1
 
-print(str(number_of_matches) + " instance of " + single_character + " in " + five_character_word)
+"""Making sure the final instances are listed with the correct grammar"""
+"""( str(number_of_matches) + " instance of " + single_character " in " + five_character_word)"""
+
+if number_of_matches == 1:
+    print("1 instance of " + single_character + " in " + five_character_word)
+else:
+    if number_of_matches == 0:
+        print("No instances of " + single_character + " in " + five_character_word)
+    else:
+        print(str(number_of_matches) + " instances of " + single_character + " in " + five_character_word)
