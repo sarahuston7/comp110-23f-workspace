@@ -15,3 +15,5 @@ if int(num_string[1]) % 2 == 1:
 if int(num_string[2]) % 2 == 1:
     num_of_odds = num_of_odds + 1
 print(num_of_odds)
+
+#hey
