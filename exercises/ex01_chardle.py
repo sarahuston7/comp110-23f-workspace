@@ -45,9 +45,9 @@ if str(single_character) == str(five_character_word[4]):
 """( str(number_of_matches) + " instance of " + single_character " in " + five_character_word)"""
 
 if number_of_matches == 1:
-    print("1 instance of " + single_character + " in " + five_character_word)
+    print("1 instance of " + single_character + " found in " + five_character_word)
 else:
     if number_of_matches == 0:
-        print("No instances of " + single_character + " in " + five_character_word)
+        print("No instances of " + single_character + " found in " + five_character_word)
     else:
-        print(str(number_of_matches) + " instances of " + single_character + " in " + five_character_word)
+        print(str(number_of_matches) + " instances of " + single_character + " found in " + five_character_word)
