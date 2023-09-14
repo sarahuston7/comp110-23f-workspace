@@ -1,4 +1,4 @@
-"""Prompting the user for a five-character word and a single letter."""
+"""Prompting the user for a five-character word and a single letter"""
 
 __author__ = "730459812"
 
