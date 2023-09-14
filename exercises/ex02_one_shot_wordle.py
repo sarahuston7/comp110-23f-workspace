@@ -26,9 +26,11 @@ while index_of_guess < len(secret_word):
     if ord(user_guess[index_of_guess]) == ord(secret_word[index_of_guess]):
         resulting_emoji_of_guess += GREEN_BOX
     else:
+        #what happens when guess is wrong
         guess_exists: bool = False
         alternate_indices: int = 0
         while (guess_exists == False) and (alternate_indices < len(secret_word)):
+            #must use ord !!!
             if ord(secret_word[alternate_indices]) == ord(user_guess[index_of_guess]):
                 guess_exists = True
             else:
@@ -39,6 +41,7 @@ while index_of_guess < len(secret_word):
             resulting_emoji_of_guess += WHITE_BOX
     index_of_guess += 1
 
+#yay final results
 print(resulting_emoji_of_guess)
 
 #verifying the guess or not
