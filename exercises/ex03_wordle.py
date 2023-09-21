@@ -14,6 +14,7 @@ def contains_char(string_that_gets_searched = str, character_trying_to_find = st
             #character is present
             character_present = True
             return True
+        #character is not present
         else:
             alternate_index_of_string = alternate_index_of_string + 1
     #character is not present
@@ -31,10 +32,13 @@ def emojified(string_guess = str, string_that_gets_searched = str) -> str:
     YELLOW_BOX: str = "\U0001F7E8"
     #checks through indexs of secret word for matching, or if the letter is present
     while index_of_word < len(string_guess):
+        #correct letter
         if ord(string_that_gets_searched[index_of_word]) == ord(string_guess[index_of_word]):
             emojis += GREEN_BOX
+        #letter found elsewhere in word
         elif contains_char(string_that_gets_searched,string_guess[index_of_word]) == True:
             emojis += YELLOW_BOX
+        #letter not found in word
         else:
             emojis += WHITE_BOX
         index_of_word = 1 + index_of_word
