@@ -2,13 +2,14 @@
 
 __author__ = "730459812"
 
-def invert(dictionary: dict[str,str]) -> dict[str,str]:
+
+def invert(dictionary: dict[str, str]) -> dict[str, str]:
     """When given a dictionary, it will swap values and keys."""
-    inverted_list: dict[str,str]  = {}
+    inverted_list: dict[str, str] = {}
     for keys in dictionary:
         value = dictionary[keys]
         inverted_list[value] = keys
-    duplicates_list: list(str) = []
+    duplicates_list: list[str] = []
     for keys in dictionary:
         duplicates_list.append(dictionary[keys])
         print(duplicates_list)
@@ -23,9 +24,9 @@ def invert(dictionary: dict[str,str]) -> dict[str,str]:
     return inverted_list
 
 
-def favorite_color(dictionary: dict[str,str]) -> str:
+def favorite_color(dictionary: dict[str, str]) -> str:
     """When given a dictionary, it will return the most frequent color."""
-    color_dict: dict[str,int] = {}
+    color_dict: dict[str, int] = {}
     i: int = 0
     best_color: str = ""
     for name in dictionary:
@@ -40,15 +41,13 @@ def favorite_color(dictionary: dict[str,str]) -> str:
     return best_color
 
 
-def count(counter_list: list[str]) -> dict[str,int]:
+def count(counter_list: list[str]) -> dict[str, int]:
     """When given a list, it will create a dictionary with unique values and the number of values it appeared."""
-    new_dict: dict[str,int] = {}
-    i: int = 0
+    new_dict: dict[str, int] = {}
     list_index: int = 0
     while len(counter_list) > list_index:
         new_dict[counter_list[list_index]] = 0
         list_index += 1
-    #counting duplicates
     index8: int = 0
     while len(counter_list) > index8:
         index9: int = 0
@@ -64,42 +63,25 @@ def count(counter_list: list[str]) -> dict[str,int]:
 
 def alphabetizer(abc_list: list[str]) -> dict[str, list[str]]:
     """Give a list and get all the words that start with the same letter."""
-    new_abc: list[str] = str(abc_list).lower()
-    print(new_abc)
-    character_abc_list: list[str] = []
-    i: int = 0
     abc_dict: dict[str, list[str]] = {}
+    print(abc_list)
+    i: int = 0
     while len(abc_list) > i:
-        abc_dict[abc_list[i][0]] = "O"
+        abc_dict[(abc_list[i][0]).lower()] = []
         i += 1
-    print(abc_dict)
     for objects in abc_dict:
-        listy: list[str] = []
         k: int = 0
         while len(abc_list) > k:
-            t: int = 0
             if ord(str(objects)) == ord(abc_list[k][0]):
-                listy.append(abc_list[k])
-                print(listy)
-                abc_dict[objects] = listy
+                abc_dict[objects].append(abc_list[k])
             k += 1
     return abc_dict
 
 
-def update_attendance(log: dict[str, list[str]], day: str, student: str) -> dict[str, list[str]]:
+def update_attendance(log: dict[str, list[str]], day: str, student: str) -> None:
     """Function that can update a dictionary log of attendence given a day and student."""
     if day not in log:
-        log[day] = []
-    for days in log:
-        if day == days:
-            listy: list[str] = []
-            listy.append(log[days])
-            listy.append(student)
-            log[days] = listy
-            print(listy)
-    return log
-
-attendance_log: dict = {"Monday": ["Vrinda", "Kaleb"], "Tuesday": ["Alyssa"]}
-update_attendance(attendance_log, "Wednesday" , "Kaleb")
-update_attendance(attendance_log, "Tuesday" , "Vrinda")
-print(attendance_log)
+        log[day] = [student]
+    else:
+        log[day].append(student)
+    return None
