@@ -61,20 +61,49 @@ def count(counter_list: list[str]) -> dict[str, int]:
     return new_dict
 
 
+# def alphabetizer(abc_list: list[str]) -> dict[str, list[str]]:
+#     """Give a list and get all the words that start with the same letter."""
+    # dup_dict: dict[str, list[str]] = {}
+    # for elements in abc_list:
+    #     elements.lower()
+    # print(abc_list)
+    # for elements in abc_list:
+    #     dup_dict[elements] = 0
+    # if len(dup_dict) != len(abc_list):
+    #     i: int = 0
+    #     while i < len(abc_list):
+    #         k: int = 0
+    #         if abc_list[i] == abc_list[k]:
+    #             abc_list.pop(i)
+    #             k += 1
+    #         i += 1
+    # abc_dict: dict[str, list[str]] = {}
+    # print(abc_list)
+    # i: int = 0
+    # while len(abc_list) > i:
+    #     abc_dict[(abc_list[i][0]).lower()] = []
+    #     i += 1
+    #     print(abc_dict)
+    # for objects in abc_dict:
+    #     k: int = 0
+    #     while len(abc_list) > k:
+    #         if str(objects) == abc_list[k][0]:
+    #             abc_dict[objects].append(abc_list[k])
+    #             print(abc_dict)
+    #         k += 1
+    # return abc_dict
 def alphabetizer(abc_list: list[str]) -> dict[str, list[str]]:
-    """Give a list and get all the words that start with the same letter."""
+    """Give a list and get all the words that start with the same letter (case-insensitive)."""
     abc_dict: dict[str, list[str]] = {}
-    print(abc_list)
-    i: int = 0
-    while len(abc_list) > i:
-        abc_dict[(abc_list[i][0]).lower()] = []
-        i += 1
-    for objects in abc_dict:
-        k: int = 0
-        while len(abc_list) > k:
-            if ord(str(objects)) == ord(abc_list[k][0]):
-                abc_dict[objects].append(abc_list[k])
-            k += 1
+
+    for element in abc_list:
+        # Use the first character of each word (lowercase) as the key
+        first_char = element[0].lower()
+        if first_char not in abc_dict:
+            abc_dict[first_char] = []
+        
+        abc_dict[first_char].append(element)
+
     return abc_dict
 
 
@@ -83,5 +112,8 @@ def update_attendance(log: dict[str, list[str]], day: str, student: str) -> None
     if day not in log:
         log[day] = [student]
     else:
+        new_list: list[str] = log[day]
+        if student in new_list:
+            return None
         log[day].append(student)
     return None

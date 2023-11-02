@@ -18,8 +18,8 @@ def test_normal_invert():
 
 def test_empty_dict():
     """Empty dict."""
-    test_dict2: dict[str,str] = {}
-    assert invert (test_dict2) == {}
+    test_dict2: dict[str, str] = {}
+    assert invert(test_dict2) == {}
 
 
 def test_normal_short_invert():
@@ -48,7 +48,7 @@ def test_norm_fav_color_long():
 
 def test_norm_count():
     """When given a list, should create dict w. frequency item appeared."""
-    test_list1: list[str] = ["sara","steve","syd"]
+    test_list1: list[str] = ["sara", "steve", "syd"]
     assert count(test_list1) == {"sara": 1, "steve": 1, "syd": 1}
 
 
@@ -60,13 +60,13 @@ def test_empty_list_count():
 
 def test_list_with_dup_count():
     """List with duplicates returns frequencies."""
-    test_list3: list[str] = ["sara","steve","syd","syd"]
+    test_list3: list[str] = ["sara", "steve", "syd", "syd"]
     assert count(test_list3) == {"sara": 1, "steve": 1, "syd": 2}
 
 
 def test_alpha_norm():
     """Give a list and get all the words that start with the same letter."""
-    test_list4: list[str] = ["sara","teve","yd","syd"]
+    test_list4: list[str] = ["sara", "teve", "yd", "syd"]
     assert alphabetizer(test_list4) == {"s": ["sara", "syd"], "y": ["yd"], "t": ["teve"]}
 
 
@@ -78,7 +78,7 @@ def test_alpha_empty():
 
 def test_alpha_only_one_char():
     """List of all same letter returns one element dict."""
-    test_list6: list[str] = ["sara","steve","syd"]
+    test_list6: list[str] = ["sara", "steve", "syd"]
     assert alphabetizer(test_list6) == {"s": ["sara", "steve", "syd"]}
 
 
@@ -88,7 +88,7 @@ def test_attend_norm():
     day: str = "Monday"
     name: str = "Kathy"
     update_attendance(test_dict14, day, name)
-    assert  test_dict14 == {"Monday": ["Kathy"], "Tues": ["Sam"]}
+    assert test_dict14 == {"Monday": ["Kathy"], "Tues": ["Sam"]}
 
 
 def test_attend_diff_day():
