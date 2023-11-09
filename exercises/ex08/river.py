@@ -5,6 +5,10 @@ from exercises.ex08.bear import Bear
 
 class River:
     
+    day: int
+    bears: list[Bear]
+    fish: list[Fish]
+
     def __init__(self, num_fish: int, num_bears:int):
         """New River with num_fish Fish and num_bears Bears"""
         self.day: int = 0
@@ -15,6 +19,13 @@ class River:
             self.fish.append(Fish())
         for x in range(0, num_bears):
             self.bears.append(Bear())
+
+    def view_river(self) -> str:
+        output: str = f"~~~ Day {self.day}: ~~~\n"
+        output += f"Fish population: {self.fish}\n"
+        output += f"Bear population: {self.bears}"
+        print(output)
+        return output
 
     def check_ages(self):
         return None
